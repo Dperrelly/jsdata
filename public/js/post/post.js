@@ -8,14 +8,15 @@ app.config(function($stateProvider) {
 		resolve: {
 			users: function(User){
 				// GET - > '/api/users'
-				return User.findAll()
+				return User.findAll();
 			}
 		}
 	})
 });
 
 // add necessary dependencies 
-app.controller('PostCtrl', function() {
+app.controller('PostCtrl', function($stateParams, $scope) {
+	$scope.id = $stateParams.postId;
 
 
 	/* 1. FIND POST
